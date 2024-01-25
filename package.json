@@ -54,7 +54,7 @@
   "license": "AGPLv3",
   "scripts": {
     "run-env": "npm ci && tail -f /dev/null",
-    "cp-typechain": "cp typechain/*.d.ts ./dist/types/typechain",
+    "cp-typechain": "cp typechain/*.d.ts dist/types/typechain",
     "build": "tsc --project lib.tsconfig.json && npm run cp-typechain",
     "clean": "rm -rf artifacts/ types/ dist/ typechain/",
     "compile": "SKIP_LOAD=true npx hardhat compile",
@@ -66,6 +66,8 @@
     "test:fork": "MARKET_NAME=Aave FORK=main npx hardhat test ./tests/__setup.spec.ts ./tests/fork/check-list.spec.ts",
     "test:ethereum:fork": "TRANSFER_OWNERSHIP=true  FORK=main MARKET_NAME=Ethereum npx hardhat test ./tests/ethereum/ethereum.*.spec.ts",
     "deploy:market:aave:fork": "FORK=main MARKET_NAME=Aave npm run deploy",
+    "deploy:market:archax:mumbai": "HARDHAT_NETWORK=mumbai npx hardhat deploy --no-compile",
+    "deploy:market:archax:mumbai:fork": "FORK=mumbai MARKET_NAME=Archax npm run deploy",
     "deploy:market:eth:empty:fork": "FORK=main MARKET_NAME=Ethereum npm run deploy"
   },
   "peerDependencies": {

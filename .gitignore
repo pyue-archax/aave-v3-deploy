@@ -1,11 +1,11 @@
 .env
 
 #Buidler files
-cache
-artifacts
+cache_1
+artifacts_1
 
 node_modules
-dist/
+dist_1/
 build/
 .vscode
 .idea

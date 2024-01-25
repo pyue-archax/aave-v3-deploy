@@ -105,6 +105,7 @@ export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
 
 const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {
   [eArbitrumNetwork.goerliNitro]: 100000001,
+  [ePolygonNetwork.mumbai]: 1505910467, //TODO, if slow, increase it
 };
 
 export const buildForkConfig = ():
@@ -139,6 +140,7 @@ export const getCommonNetworkConfig = (
   url: NETWORKS_RPC_URL[networkName] || "",
   blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
   chainId,
+  // gas: 2100000, //TODO temp added, remove it
   gasPrice: GAS_PRICE_PER_NET[networkName] || undefined,
   ...((!!MNEMONICS[networkName] || !!MNEMONIC) && {
     accounts: {

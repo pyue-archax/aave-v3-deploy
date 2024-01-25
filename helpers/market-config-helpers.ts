@@ -35,11 +35,13 @@ import {
 import { ZERO_ADDRESS } from "./constants";
 import { getTestnetReserveAddressFromSymbol, POOL_DATA_PROVIDER } from ".";
 import { ENABLE_REWARDS } from "./env";
+import ArchaxMarket from "../markets/archax";
 
 declare var hre: HardhatRuntimeEnvironment;
 
 export enum ConfigNames {
   Commons = "Commons",
+  Archax = "Archax",
   Aave = "Aave",
   Test = "Test",
   Harmony = "Harmony",
@@ -96,6 +98,8 @@ export const getAddressFromConfig = (
 
 export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
   switch (configName) {
+    case ConfigNames.Archax:
+      return ArchaxMarket;
     case ConfigNames.Aave:
       return AaveMarket;
     case ConfigNames.Test:
