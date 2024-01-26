@@ -105,6 +105,7 @@ export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
 
 const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {
   [eArbitrumNetwork.goerliNitro]: 100000001,
+  [ePolygonNetwork.mumbai]: 1505910467, //TODO, if slow, increase it
 };
 
 export const buildForkConfig = ():
